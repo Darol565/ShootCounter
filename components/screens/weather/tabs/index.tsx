@@ -9,17 +9,17 @@ const tabs = [
   {
     id: 0,
     path: "/",
-    label: "Hourly",
+    label: "Heute",
   },
   {
     id: 1,
     path: "/days",
-    label: "10 Days",
+    label: "7 Tage",
   },
   {
     id: 2,
     path: "/monthly",
-    label: "Monthly",
+    label: "Monat",
   },
 ];
 

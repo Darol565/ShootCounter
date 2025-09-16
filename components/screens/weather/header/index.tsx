@@ -1,15 +1,22 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {HStack} from "@/components/ui/hstack";
-import {Icon, SearchIcon} from "@/components/ui/icon";
 import {VStack} from "@/components/ui/vstack";
 import {Box} from "@/components/ui/box";
-import {ImageBackground} from "@/components/ui/image-background";
-import {Image} from "@/components/ui/image";
 import {ThemeContext} from "@/contexts/theme-context";
 import Animated, {
     interpolate,
     useAnimatedStyle,
 } from "react-native-reanimated";
+import {useAutoDisplayName} from "@/hooks/useAutoDisplayName/useAutoDisplayName";
+
+function useNow(intervalMs = 30000) {
+    const [now, setNow] = useState(() => new Date());
+    useEffect(() => {
+        const id = setInterval(() => setNow(new Date()), intervalMs);
+        return () => clearInterval(id);
+    }, [intervalMs]);
+    return now;
+}
 
 const Header = ({height}: { height: number }) => {
     const {colorMode}: any = useContext(ThemeContext);
@@ -62,6 +69,24 @@ const Header = ({height}: { height: number }) => {
     //     ),
     // }));
 
+    const displayName = useAutoDisplayName("User");
+
+    const now = useNow(30000); // 30s-Update ohne Sekunden
+    const dateStr = now.toLocaleDateString("de-CH", {
+        timeZone: "Europe/Zurich",
+        month: "long",
+        day: "2-digit",
+    });
+
+    // If you want to include the time string, you can uncomment the following lines
+    // and integrate `timeStr` into the component as needed.
+    // const timeStr = now.toLocaleTimeString("de-CH", {
+    //     timeZone: "Europe/Zurich",
+    //     hour: "2-digit",
+    //     minute: "2-digit",
+    //     hour12: false,
+    // });
+
     return (
         <Box className="bg-background-0 rounded-b-3xl overflow-hidden flex-1">
                 <Animated.View
@@ -86,7 +111,7 @@ const Header = ({height}: { height: number }) => {
                                     locationTextStyle,
                                 ]}
                             >
-                                Hey, Dave
+                                {`Hey, ${displayName}`}
                             </Animated.Text>
                             <Animated.Text
                                 style={[
@@ -97,7 +122,7 @@ const Header = ({height}: { height: number }) => {
                                     dateTextStyle,
                                 ]}
                             >
-                                January 18, 16:14
+                                {dateStr}
                             </Animated.Text>
                         </VStack>
                     </HStack>
