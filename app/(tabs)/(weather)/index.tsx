@@ -58,31 +58,31 @@ const Hourly = () => {
           </HStack>
         </Animated.View>
 
-        <Animated.View
-          entering={
-            hasHourlyTabChild1Animated.current
-              ? undefined
-              : FadeInDown.delay(1 * 100)
-                  .springify()
-                  .damping(12)
-          }
-        >
-          <HStack space="md">
-            {PressureAndUVIndexData.map((card: any) => {
-              return (
-                <HourlyCard
-                  key={card.id}
-                  icon={card.icon}
-                  text={card.text}
-                  currentUpdate={card.currentUpdate}
-                  lastUpdate={card.lastUpdate}
-                  arrowDownIcon={card.arrowDownIcon}
-                  arrowUpIcon={card.arrowUpIcon}
-                />
-              );
-            })}
-          </HStack>
-        </Animated.View>
+        {/*<Animated.View*/}
+        {/*  entering={*/}
+        {/*    hasHourlyTabChild1Animated.current*/}
+        {/*      ? undefined*/}
+        {/*      : FadeInDown.delay(1 * 100)*/}
+        {/*          .springify()*/}
+        {/*          .damping(12)*/}
+        {/*  }*/}
+        {/*>*/}
+        {/*  <HStack space="md">*/}
+        {/*    /!*{PressureAndUVIndexData.map((card: any) => {*!/*/}
+        {/*    /!*  return (*!/*/}
+        {/*    /!*    <HourlyCard*!/*/}
+        {/*    /!*      key={card.id}*!/*/}
+        {/*    /!*      icon={card.icon}*!/*/}
+        {/*    /!*      text={card.text}*!/*/}
+        {/*    /!*      currentUpdate={card.currentUpdate}*!/*/}
+        {/*    /!*      lastUpdate={card.lastUpdate}*!/*/}
+        {/*    /!*      arrowDownIcon={card.arrowDownIcon}*!/*/}
+        {/*    /!*      arrowUpIcon={card.arrowUpIcon}*!/*/}
+        {/*    /!*    />*!/*/}
+        {/*    /!*  );*!/*/}
+        {/*    /!*})}*!/*/}
+        {/*  </HStack>*/}
+        {/*</Animated.View>*/}
       </AnimatedVStack>
 
       {/* ---------------------------- Hourly forecast ---------------------------- */}
@@ -129,7 +129,7 @@ const Hourly = () => {
             <Icon as={CloudRain} className="text-typography-400" size="sm" />
           </Box>
           <Text className="font-dm-sans-regular text-typography-400">
-            Chance of Niggas
+            Chance
           </Text>
         </HStack>
 

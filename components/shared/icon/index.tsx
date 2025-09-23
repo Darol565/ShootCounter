@@ -1,6 +1,6 @@
 import React from "react";
 import { createIcon } from "@/components/ui/icon";
-import { Path } from "react-native-svg";
+import {Circle, Path} from "react-native-svg";
 
 const ArrowUpIcon = createIcon({
   viewBox: "0 0 12 12",
@@ -16,11 +16,25 @@ const ArrowDownIcon = createIcon({
   viewBox: "0 0 12 12",
   path: (
     <>
-      <Path d="M5.66671 7.66671L2.33337 4.33337H9.00004L5.66671 7.66671Z" />
+      <Path d="../assets/images/target.png" />
     </>
   ),
 });
 export { ArrowDownIcon };
+
+// Fadenkreuz / Zielscheibe
+const TargetIcon = createIcon({
+    viewBox: "0 0 24 24",
+    path: (
+        <>
+            <Circle cx="12" cy="12" r="10" strokeWidth={2} fill="none" />
+            <Circle cx="12" cy="12" r="6" strokeWidth={2} fill="none" />
+            <Circle cx="12" cy="12" r="2" />
+            <Path d="M12 2v4M12 18v4M2 12h4M18 12h4" strokeWidth={2} />
+        </>
+    )
+});
+export { TargetIcon };
 
 const WeatherIcon = createIcon({
   viewBox: "0 0 24 24",
