@@ -9,14 +9,15 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.shootcounterapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "softwareKeyboardLayoutMode": "pan"
+      "package": "com.anonymous.shootcounterapp"
     },
     "web": {
       "bundler": "metro",
@@ -35,7 +36,16 @@
         }
       ],
       "expo-font",
-      "expo-web-browser"
+      "expo-web-browser",
+      [
+        "react-native-ble-plx",
+        {
+          "bluetoothAlwaysPermission": "Die App verbindet sich per Bluetooth mit dem ShootCounter.",
+          "isBackgroundEnabled": false,
+          "modes": [],
+          "neverForLocation": true
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
