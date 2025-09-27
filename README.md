@@ -1,5 +1,16 @@
 # Welcome to the Weather App Template for `theappmarket.io` 👋
 
+
+##run on ios device
+npx expo prebuild
+npx expo run:ios --device
+-
+npx expo start --dev-client --host tunnel --clear
+
+right now only 
+npx expo run:ios --device
+ should be fine to start
+
 This is a template for a weather app that will be made for the `theappmarket.io` platform, created with Expo. It includes basic features for a weather app, such as weather updates, and location-based forecasts.
 
 ## Get started
