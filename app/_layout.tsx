@@ -1,6 +1,7 @@
 import "@/global.css";
+import "../polyfills"; // Buffer-Polyfill
 import { useContext } from "react";
-import { Stack } from "expo-router";
+import {Slot, Stack} from "expo-router";
 import { useFonts } from "expo-font";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { StatusBar } from "expo-status-bar";
@@ -10,6 +11,7 @@ import {
   DMSans_500Medium,
   DMSans_700Bold,
 } from "@expo-google-fonts/dm-sans";
+import { BleProvider } from "@/contexts/BleProvider";
 
 const MainLayout = () => {
   const { colorMode }: any = useContext(ThemeContext);
@@ -35,8 +37,11 @@ const MainLayout = () => {
 
 export default function RootLayout() {
   return (
-    <ThemeProvider>
-      <MainLayout />
-    </ThemeProvider>
+      <BleProvider>
+          <Slot />
+      </BleProvider>
+//    <ThemeProvider>
+//      <MainLayout />
+//    </ThemeProvider>
   );
 }

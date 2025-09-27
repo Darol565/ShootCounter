@@ -86,75 +86,75 @@ const Hourly = () => {
       </AnimatedVStack>
 
       {/* ---------------------------- Hourly forecast ---------------------------- */}
-      <VStack className="py-3 rounded-2xl bg-background-100 gap-3 p-3">
-        <HStack className="gap-2 items-center">
-          <Box className="h-7 w-7 bg-background-50 items-center justify-center rounded-full">
-            <Icon as={ClockIcon} className="text-typography-400" size="sm" />
-          </Box>
-          <Text className="font-dm-sans-regular text-typography-400">
-            Hourly forecast
-          </Text>
-        </HStack>
+      {/*<VStack className="py-3 rounded-2xl bg-background-100 gap-3 p-3">*/}
+      {/*  <HStack className="gap-2 items-center">*/}
+      {/*    <Box className="h-7 w-7 bg-background-50 items-center justify-center rounded-full">*/}
+      {/*      <Icon as={ClockIcon} className="text-typography-400" size="sm" />*/}
+      {/*    </Box>*/}
+      {/*    <Text className="font-dm-sans-regular text-typography-400">*/}
+      {/*      Hourly forecast*/}
+      {/*    </Text>*/}
+      {/*  </HStack>*/}
 
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          className=""
-          contentContainerClassName="gap-x-8 px-3"
-        >
-          {HourlyForecastData.map((card: any) => {
-            return (
-              <ForeCastCard
-                key={card.id}
-                time={card.time}
-                imgUrl={card.imgUrl}
-                temperature={card.temperature}
-              />
-            );
-          })}
-        </ScrollView>
-      </VStack>
+      {/*  <ScrollView*/}
+      {/*    horizontal*/}
+      {/*    showsHorizontalScrollIndicator={false}*/}
+      {/*    className=""*/}
+      {/*    contentContainerClassName="gap-x-8 px-3"*/}
+      {/*  >*/}
+      {/*    {HourlyForecastData.map((card: any) => {*/}
+      {/*      return (*/}
+      {/*        <ForeCastCard*/}
+      {/*          key={card.id}*/}
+      {/*          time={card.time}*/}
+      {/*          imgUrl={card.imgUrl}*/}
+      {/*          temperature={card.temperature}*/}
+      {/*        />*/}
+      {/*      );*/}
+      {/*    })}*/}
+      {/*  </ScrollView>*/}
+      {/*</VStack>*/}
 
       {/* ---------------------------- Day forecast ----------------------------- */}
 
-      <Chart chartRef={childRefs[0].ref} />
+      {/*<Chart chartRef={childRefs[0].ref} />*/}
 
       {/* ---------------------------- Chance of rain ---------------------------- */}
-      <VStack
-        className="p-3 rounded-2xl bg-background-100 gap-3"
-        ref={childRefs[1].ref}
-      >
-        <HStack className="items-center gap-2">
-          <Box className="h-7 w-7 bg-background-50 items-center justify-center rounded-full">
-            <Icon as={CloudRain} className="text-typography-400" size="sm" />
-          </Box>
-          <Text className="font-dm-sans-regular text-typography-400">
-            Chance
-          </Text>
-        </HStack>
+      {/*<VStack*/}
+      {/*  className="p-3 rounded-2xl bg-background-100 gap-3"*/}
+      {/*  ref={childRefs[1].ref}*/}
+      {/*>*/}
+      {/*  <HStack className="items-center gap-2">*/}
+      {/*    <Box className="h-7 w-7 bg-background-50 items-center justify-center rounded-full">*/}
+      {/*      <Icon as={CloudRain} className="text-typography-400" size="sm" />*/}
+      {/*    </Box>*/}
+      {/*    <Text className="font-dm-sans-regular text-typography-400">*/}
+      {/*      Chance*/}
+      {/*    </Text>*/}
+      {/*  </HStack>*/}
 
-        <VStack className="justify-between px-3 gap-2.5">
-          {RainPredictionData.map((card: any) => {
-            return (
-              <RainCard key={card.id} time={card.time} value={card.value} />
-            );
-          })}
-        </VStack>
-      </VStack>
+      {/*  <VStack className="justify-between px-3 gap-2.5">*/}
+      {/*    {RainPredictionData.map((card: any) => {*/}
+      {/*      return (*/}
+      {/*        <RainCard key={card.id} time={card.time} value={card.value} />*/}
+      {/*      );*/}
+      {/*    })}*/}
+      {/*  </VStack>*/}
+      {/*</VStack>*/}
 
-      <HStack space="md">
-        {SunriseAndSunsetData.map((card: any) => {
-          return (
-            <HourlyCard
-              key={card.id}
-              icon={card.icon}
-              text={card.text}
-              currentUpdate={card.currentUpdate}
-              lastUpdate={card.lastUpdate}
-            />
-          );
-        })}
-      </HStack>
+      {/*<HStack space="md">*/}
+      {/*  {SunriseAndSunsetData.map((card: any) => {*/}
+      {/*    return (*/}
+      {/*      <HourlyCard*/}
+      {/*        key={card.id}*/}
+      {/*        icon={card.icon}*/}
+      {/*        text={card.text}*/}
+      {/*        currentUpdate={card.currentUpdate}*/}
+      {/*        lastUpdate={card.lastUpdate}*/}
+      {/*      />*/}
+      {/*    );*/}
+      {/*  })}*/}
+      {/*</HStack>*/}
     </VStack>
   );
 };

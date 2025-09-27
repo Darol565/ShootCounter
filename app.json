@@ -41,8 +41,7 @@
         "react-native-ble-plx",
         {
           "bluetoothAlwaysPermission": "Die App verbindet sich per Bluetooth mit dem ShootCounter.",
-          "isBackgroundEnabled": false,
-          "modes": [],
+          "modes": ["central"],
           "neverForLocation": true
         }
       ]
