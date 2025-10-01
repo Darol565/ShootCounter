@@ -4,33 +4,32 @@ import { HStack } from "@/components/ui/hstack";
 import { VStack } from "@/components/ui/vstack";
 import { Box } from "@/components/ui/box";
 import { Text } from "@/components/ui/text";
-import { ThemeContext } from "@react-navigation/core";
-import { useBle } from "@/contexts/BleProvider";
+import { ThemeContext } from "@/contexts/theme-context";      // ✅ dein ThemeContext
+import { useBle } from "@/contexts/BleProvider";               // ✅ BLE-Provider
 
 const targetPng = require("@/assets/images/target.png");
 
 interface IHourlyCard {
     icon: any;
     text: string;
-    currentUpdate: string;
-    lastUpdate: string;
-    arrowDownIcon?: boolean;
-    arrowUpIcon?: boolean;
 }
 
-const HourlyCard = ({
-                        icon,
-                        text,
-                        currentUpdate,
-                        lastUpdate,
-                        arrowDownIcon,
-                        arrowUpIcon,
-                    }: IHourlyCard) => {
-    const theme = useContext<any>(ThemeContext);
+const HourlyCard = ({ icon, text }: IHourlyCard) => {
+    const { colorMode }: any = useContext(ThemeContext);
     const scheme = useColorScheme();
-    const isDark = theme?.colorMode ? theme.colorMode === "dark" : scheme === "dark";
+    const isDark =
+        colorMode ? colorMode === "dark" : scheme === "dark";
 
-    const { device, today, yesterday, scanning, ready, error, startScanAndConnect, disconnect } = useBle();
+    const {
+        device,
+        today,
+        yesterday,
+        scanning,
+        ready,
+        error,
+        startScanAndConnect,
+        disconnect,
+    } = useBle();
 
     return (
         <VStack className="p-3 rounded-2xl bg-background-100 flex-1 items-left gap-4">
@@ -38,11 +37,17 @@ const HourlyCard = ({
                 <Box className="h-7 w-7 bg-background-50 rounded-full items-center justify-center">
                     <RNImage
                         source={targetPng}
-                        style={{ width: 16, height: 16, tintColor: isDark ? "#FFFFFF" : "#000000" }}
+                        style={{
+                            width: 16,
+                            height: 16,
+                            tintColor: isDark ? "#FFFFFF" : "#000000",
+                        }}
                         resizeMode="contain"
                     />
                 </Box>
-                <Text className="text-typography-400 font-dm-sans-regular">Schüsse heute</Text>
+                <Text className="text-typography-400 font-dm-sans-regular">
+                    Schüsse heute
+                </Text>
             </HStack>
 
             <VStack className="flex-1 gap-1">
@@ -64,7 +69,7 @@ const HourlyCard = ({
                             paddingHorizontal: 12,
                             borderRadius: 12,
                             backgroundColor: isDark ? "#2a2a2a" : "#e7e7e7",
-                            opacity: (!ready || scanning) ? 0.6 : 1
+                            opacity: !ready || scanning ? 0.6 : 1,
                         }}
                     >
                         <Text className="font-dm-sans-regular">
@@ -78,7 +83,7 @@ const HourlyCard = ({
                             paddingVertical: 6,
                             paddingHorizontal: 12,
                             borderRadius: 12,
-                            backgroundColor: isDark ? "#2a2a2a" : "#e7e7e7"
+                            backgroundColor: isDark ? "#2a2a2a" : "#e7e7e7",
                         }}
                     >
                         <Text className="font-dm-sans-regular">Trennen</Text>

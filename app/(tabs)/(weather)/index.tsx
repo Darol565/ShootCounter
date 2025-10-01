@@ -48,10 +48,6 @@ const Hourly = () => {
                   key={card.id}
                   icon={card.icon}
                   text={card.text}
-                  currentUpdate={card.currentUpdate}
-                  lastUpdate={card.lastUpdate}
-                  arrowDownIcon={card.arrowDownIcon}
-                  arrowUpIcon={card.arrowUpIcon}
                 />
               );
             })}
