@@ -23,7 +23,6 @@ const HourlyCard = ({ icon, text }: IHourlyCard) => {
     const {
         device,
         today,
-        yesterday,
         scanning,
         ready,
         error,
@@ -32,7 +31,7 @@ const HourlyCard = ({ icon, text }: IHourlyCard) => {
     } = useBle();
 
     return (
-        <VStack className="p-3 rounded-2xl bg-background-100 flex-1 items-left gap-4">
+        <VStack className="py-3 rounded-2xl bg-background-100 gap-3 p-3">
             <HStack className="gap-2 items-center">
                 <Box className="h-7 w-7 bg-background-50 rounded-full items-center justify-center">
                     <RNImage
@@ -53,9 +52,6 @@ const HourlyCard = ({ icon, text }: IHourlyCard) => {
             <VStack className="flex-1 gap-1">
                 <Text className="text-typography-900 font-dm-sans-regular text-[28px]">
                     {today}
-                </Text>
-                <Text className="text-typography-500 font-dm-sans-regular">
-                    Schüsse gestern: {yesterday}
                 </Text>
             </VStack>
 

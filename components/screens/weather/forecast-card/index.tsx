@@ -24,7 +24,7 @@ const ForeCastCard = ({ time, imgUrl, temperature }: IForeCastCard) => {
           contentFit="contain"
         />
       </Box>
-      <Text className="text-typography-900 font-dm-sans-regular">{temperature}°</Text>
+      <Text className="text-typography-900 font-dm-sans-regular">gahh</Text>
     </VStack>
   );
 };
